@@ -2,9 +2,9 @@ import { ArrowDownRight, ArrowUpRight, Car, Crown, Sparkles } from "lucide-react
 import type { Booking } from "@/types";
 
 const PACKAGE_STYLE: Record<Booking["package"], { bg: string; desc: string }> = {
-  "Meong Hemat": { bg: "bg-mint", desc: "Kamar standar, makan 3x, main 2 sesi" },
-  "Nyaman Pol": { bg: "bg-sun", desc: "Kamar luas, makan 4x, main 4 sesi, CCTV 24 jam" },
-  "Sultan Anabul": { bg: "bg-lilac", desc: "Suite pribadi, sitter khusus, kolam & taman" },
+  Standar: { bg: "bg-mint", desc: "Kamar standar, makan 3x, main 2 sesi, CCTV 24 jam" },
+  Deluxe: { bg: "bg-sun", desc: "Kamar luas, makan 4x, main 4 sesi, CCTV 24 jam" },
+  Premium: { bg: "bg-lilac", desc: "Suite pribadi, sitter khusus, area main outdoor, CCTV 24 jam" },
 };
 
 export function BookingInfo({

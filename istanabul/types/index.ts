@@ -6,7 +6,7 @@ export type Mood = "Ceria" | "Santai" | "Agak manja" | "Ngantuk";
 
 export type Appetite = "Lahap" | "Normal" | "Pilih-pilih";
 
-export type PackageName = "Meong Hemat" | "Nyaman Pol" | "Sultan Anabul";
+export type PackageName = "Standar" | "Deluxe" | "Premium";
 
 /** Status yang dicatat sitter setelah jam makan lewat. */
 export type FeedingResult = "habis" | "sisa-sedikit" | "belum-dimakan";

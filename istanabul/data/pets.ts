@@ -27,7 +27,7 @@ export const pets: Pet[] = [
       nights: 5,
       checkInTime: "10:00",
       checkOutTime: "12:00",
-      package: "Nyaman Pol",
+      package: "Deluxe",
       addOns: ["Grooming mandi + potong bulu", "Laporan foto harian"],
       pickup: [
         {
@@ -134,7 +134,7 @@ export const pets: Pet[] = [
       nights: 4,
       checkInTime: "10:00",
       checkOutTime: "12:00",
-      package: "Meong Hemat",
+      package: "Standar",
       addOns: ["Laporan foto harian"],
       pickup: [
         {
@@ -235,7 +235,7 @@ export const pets: Pet[] = [
       nights: 6,
       checkInTime: "09:00",
       checkOutTime: "12:00",
-      package: "Sultan Anabul",
+      package: "Premium",
       addOns: ["Catio pribadi", "Grooming lengkap", "Video call harian", "Laporan foto harian"],
       pickup: [
         {
