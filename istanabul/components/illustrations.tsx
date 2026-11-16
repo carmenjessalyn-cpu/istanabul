@@ -54,12 +54,15 @@ export function Mascot({ className, title = "Maskot Istanabul, kucing oranye ber
   );
 }
 
-const CAT_STYLES: Record<"persia" | "domestik", { fur: string; inner: string; marks: string; muzzle: string }> = {
+type CatKind = "persia" | "domestik" | "oyen";
+
+const CAT_STYLES: Record<CatKind, { fur: string; inner: string; marks: string; muzzle: string }> = {
   persia: { fur: "#FFF1E2", inner: "#FFB3A7", marks: "#E9D3BE", muzzle: "#FFFDF9" },
   domestik: { fur: "#A4734F", inner: "#FFB3A7", marks: "#6E4A30", muzzle: "#E9C9A8" },
+  oyen: { fur: "#F08A4B", inner: "#FFB3A7", marks: "#C24A28", muzzle: "#FFE6D6" },
 };
 
-function CatFace({ kind }: { kind: "persia" | "domestik" }) {
+function CatFace({ kind }: { kind: CatKind }) {
   const s = CAT_STYLES[kind];
   const fluffy = kind === "persia";
   return (
@@ -99,36 +102,90 @@ function CatFace({ kind }: { kind: "persia" | "domestik" }) {
   );
 }
 
-function DogFace() {
+/** Poodle putih: jambul pompom dan telinga keriting. */
+function PoodleFace() {
+  const fur = "#FBF3EA";
+  const shade = "#EADFD2";
   return (
     <g>
-      <path d="M18 40 Q10 70 26 84 Q36 78 38 50 Z" fill="#B97A35" stroke={PLUM} strokeWidth="4" strokeLinejoin="round" />
-      <path d="M102 40 Q110 70 94 84 Q84 78 82 50 Z" fill="#B97A35" stroke={PLUM} strokeWidth="4" strokeLinejoin="round" />
+      {/* telinga keriting */}
+      {[22, 98].map((cx) => (
+        <g key={cx}>
+          <circle cx={cx} cy="60" r="13" fill={fur} stroke={PLUM} strokeWidth="4" />
+          <circle cx={cx} cy="78" r="12" fill={fur} stroke={PLUM} strokeWidth="4" />
+          <circle cx={cx} cy="94" r="10" fill={fur} stroke={PLUM} strokeWidth="4" />
+        </g>
+      ))}
+      {/* jambul pompom */}
+      <circle cx="42" cy="30" r="13" fill={fur} stroke={PLUM} strokeWidth="4" />
+      <circle cx="78" cy="30" r="13" fill={fur} stroke={PLUM} strokeWidth="4" />
+      <circle cx="60" cy="20" r="15" fill={fur} stroke={PLUM} strokeWidth="4" />
+      {/* kepala */}
+      <ellipse cx="60" cy="66" rx="32" ry="34" fill={fur} stroke={PLUM} strokeWidth="4" />
+      <path d="M36 34 Q60 46 84 34" fill={fur} />
+      <path d="M44 42 Q48 38 52 42 M68 42 Q72 38 76 42" fill="none" stroke={shade} strokeWidth="3" strokeLinecap="round" />
+      {/* moncong */}
+      <ellipse cx="60" cy="84" rx="16" ry="12" fill={shade} />
+      <ellipse cx="47" cy="64" rx="4.5" ry="5.5" fill={PLUM} />
+      <ellipse cx="73" cy="64" rx="4.5" ry="5.5" fill={PLUM} />
+      <circle cx="48.3" cy="61.8" r="1.6" fill="#FFF7EE" />
+      <circle cx="74.3" cy="61.8" r="1.6" fill="#FFF7EE" />
+      <ellipse cx="60" cy="78" rx="6" ry="4.5" fill={PLUM} />
+      <path d="M60 82 L60 87 Q55 91 51 88 M60 87 Q65 91 69 88" fill="none" stroke={PLUM} strokeWidth="3" strokeLinecap="round" />
+      <ellipse cx="40" cy="78" rx="5" ry="3.5" fill="#FFB3A7" opacity="0.8" />
+      <ellipse cx="80" cy="78" rx="5" ry="3.5" fill="#FFB3A7" opacity="0.8" />
+      {/* pita kecil */}
+      <path d="M52 8 L60 14 L68 8 L68 20 L60 14 L52 20 Z" fill="#FFB3A7" stroke={PLUM} strokeWidth="2.5" strokeLinejoin="round" />
+    </g>
+  );
+}
+
+/** Pug: muka krem, masker gelap, telinga lipat, kerutan dahi. */
+function PugFace() {
+  const fawn = "#E6C394";
+  const mask = "#3D2F55";
+  return (
+    <g>
+      {/* telinga lipat */}
+      <path d="M24 36 Q14 30 14 46 Q20 50 32 44 Z" fill={mask} stroke={PLUM} strokeWidth="4" strokeLinejoin="round" />
+      <path d="M96 36 Q106 30 106 46 Q100 50 88 44 Z" fill={mask} stroke={PLUM} strokeWidth="4" strokeLinejoin="round" />
+      {/* kepala */}
       <path
-        d="M30 50 Q30 22 60 22 Q90 22 90 50 L90 76 Q90 104 60 104 Q30 104 30 76 Z"
-        fill="#E3A857"
+        d="M20 62 Q20 28 60 28 Q100 28 100 62 Q100 102 60 104 Q20 102 20 62 Z"
+        fill={fawn}
         stroke={PLUM}
         strokeWidth="4"
         strokeLinejoin="round"
       />
-      <path d="M60 24 Q54 40 60 52 Q66 40 60 24" fill="#F2C887" />
-      <ellipse cx="60" cy="84" rx="20" ry="15" fill="#F6DCB4" />
-      <ellipse cx="46" cy="60" rx="5" ry="6" fill={PLUM} />
-      <ellipse cx="74" cy="60" rx="5" ry="6" fill={PLUM} />
-      <circle cx="47.5" cy="57.5" r="1.8" fill="#FFF7EE" />
-      <circle cx="75.5" cy="57.5" r="1.8" fill="#FFF7EE" />
-      <ellipse cx="60" cy="76" rx="8" ry="6" fill={PLUM} />
-      <path d="M60 82 L60 88 Q54 93 49 89 M60 88 Q66 93 71 89" fill="none" stroke={PLUM} strokeWidth="3" strokeLinecap="round" />
-      <path d="M56 92 Q60 102 64 92 Z" fill="#FFB3A7" stroke={PLUM} strokeWidth="2.5" strokeLinejoin="round" />
+      {/* kerutan dahi */}
+      <path d="M46 42 Q60 36 74 42 M50 49 Q60 45 70 49" fill="none" stroke="#B98D5A" strokeWidth="3" strokeLinecap="round" />
+      {/* masker */}
+      <path d="M38 74 Q38 62 50 62 L70 62 Q82 62 82 74 Q82 96 60 98 Q38 96 38 74 Z" fill={mask} />
+      {/* mata besar */}
+      <circle cx="40" cy="60" r="8" fill={PLUM} stroke={PLUM} strokeWidth="2" />
+      <circle cx="80" cy="60" r="8" fill={PLUM} stroke={PLUM} strokeWidth="2" />
+      <circle cx="42.5" cy="57" r="2.5" fill="#FFF7EE" />
+      <circle cx="82.5" cy="57" r="2.5" fill="#FFF7EE" />
+      {/* hidung & mulut */}
+      <ellipse cx="60" cy="72" rx="7" ry="5" fill={PLUM} />
+      <ellipse cx="58" cy="70.5" rx="2" ry="1.2" fill="#5A4A66" />
+      <path d="M60 77 L60 82 Q54 88 48 84 M60 82 Q66 88 72 84" fill="none" stroke="#E6C394" strokeWidth="3" strokeLinecap="round" />
+      <path d="M56 86 Q60 95 64 86 Z" fill="#FFB3A7" stroke={PLUM} strokeWidth="2" strokeLinejoin="round" />
     </g>
   );
 }
 
 export const PET_BG: Record<PetIllustration, string> = {
-  persia: "#E4D9F7",
-  domestik: "#FFE6D6",
-  golden: "#CDEFE0",
+  poodle: "#E4D9F7",
+  pug: "#FFE6D6",
+  oyen: "#CDEFE0",
 };
+
+function PetFace({ kind }: { kind: PetIllustration }) {
+  if (kind === "poodle") return <PoodleFace />;
+  if (kind === "pug") return <PugFace />;
+  return <CatFace kind="oyen" />;
+}
 
 export function PetAvatar({
   kind,
@@ -141,7 +198,7 @@ export function PetAvatar({
       <A11y title={title} />
       {framed && <rect x="0" y="0" width="120" height="120" fill={PET_BG[kind]} />}
       <g transform={framed ? "translate(6 8) scale(0.9)" : undefined}>
-        {kind === "golden" ? <DogFace /> : <CatFace kind={kind} />}
+        <PetFace kind={kind} />
       </g>
     </svg>
   );

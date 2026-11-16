@@ -103,7 +103,7 @@ export default async function AnabulPage({ params }: Props) {
       <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:gap-6">
         {/* kolom kiri atas: video */}
         <div className="space-y-4 lg:col-start-1 lg:row-start-1">
-          <VideoCctv src={`/cctv/${pet.cctvFile}`} room={pet.room} petName={pet.name} sitterName={sitter.name} />
+          <VideoCctv src={`/cctv/${encodeURIComponent(pet.cctvFile)}`} room={pet.room} petName={pet.name} sitterName={sitter.name} />
           <PetActions
             petName={pet.name}
             sitter={sitter}

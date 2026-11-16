@@ -1,6 +1,6 @@
 export type Species = "kucing" | "anjing";
 
-export type PetIllustration = "persia" | "domestik" | "golden";
+export type PetIllustration = "poodle" | "pug" | "oyen";
 
 export type Mood = "Ceria" | "Santai" | "Agak manja" | "Ngantuk";
 

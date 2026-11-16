@@ -25,7 +25,7 @@ export const users: User[] = [
     phone: "0857-1120-4478",
     address: "Apartemen Taman Rasuna Tower 9, Setiabudi, Jakarta Selatan",
     memberSince: "2026-01-21",
-    petIds: ["bruno"],
+    petIds: ["oyen"],
   },
 ];
 
